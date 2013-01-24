@@ -1,11 +1,11 @@
-port: 8001
-mongo_address: localhost
-mongo_port: 27017
-mongo_db: mongo_database
-mongo_user: mongo_username
-mongo_pass: mongo_password
+port: 8001				# This is the port the Node.js Server will be running on
+mongo_address: localhost		# IP for mongodb server
+mongo_port: 27017			# Port for mongodb server
+mongo_db: mongo_database		# Database containing the information
+mongo_user: mongo_username		# Username to authenticate with
+mongo_pass: mongo_password		# Password to authenticate with
 # This part is optional, leave it commented out to copy all information to the database
-# or set the field names you want to store.
+# or set the field names you want to ignore when storing information.
 database_ignore:
     - SQ
     - KW
