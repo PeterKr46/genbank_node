@@ -9,7 +9,7 @@ Requirements:
 
 To set the server up, open the "config.yml".
 It should look like this:
-
+```yaml
 port: 8001
 mongo_address: localhost
 mongo_port: 27017
@@ -21,5 +21,6 @@ mongo_pass: mongo_password
 database_ignore:
     - SQ
     - KW
+```
 
  
