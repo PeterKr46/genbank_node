@@ -2,6 +2,7 @@ var yaml	= require("js-yaml");
 var http	= require("http");
 var fs		= require("fs");
 var spawn	= require("child_process").spawn;
+var fs		= require('fs');
 
 // Add String.startsWith function
 if (typeof String.prototype.startsWith != 'function') {
@@ -50,6 +51,22 @@ function GenBankServer()
 	// Handles HTTP Requests
 	this.requestHandler = function (req, res)
 	{
+		if( req.url == "/form.html" )
+		{
+			fs.readFile('form.html', 'utf8',
+				function (err,data)
+				{
+					if (err)
+					{
+						res.end(err + '');
+						console.log(err);
+						return
+					}
+					res.writeHeader( { 'content/type' : 'text/html'} );
+					res.end(data);
+				});
+			return;
+		}
 		if( req.method != "GET" || req.url == "/" || req.url == "/favicon.ico")
 		{
 			res.end("{ }\n");
