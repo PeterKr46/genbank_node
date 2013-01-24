@@ -1,9 +1,9 @@
 port: 8001
 mongo_address: localhost
 mongo_port: 27017
-mongo_db: test
-mongo_user: peter
-mongo_pass: peter
+mongo_db: mongo_database
+mongo_user: mongo_username
+mongo_pass: mongo_password
 # This part is optional, leave it commented out to copy all information to the database
 # or set the field names you want to store.
 database_ignore:
