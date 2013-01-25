@@ -69,7 +69,7 @@ function GenBankServer()
 		}
 		if( req.method != "GET" || req.url == "/" || req.url == "/favicon.ico")
 		{
-			res.end("{ }\n");
+			res.end("{}\n");
 			return;
 		}
 		var res = res;
@@ -77,7 +77,7 @@ function GenBankServer()
 		var GETData	= req.url.split("?")[1];
 		if(GETData == undefined || GETData == "")
 		{
-			res.end("{ }\n");
+			res.end(" }\n");
 		}
 		var keys	= GETData.split("&");
 		var fields	= [];
