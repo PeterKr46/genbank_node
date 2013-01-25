@@ -53,10 +53,10 @@ class GBParser:
 				this.documents.append(this.information)
 				this.information = { "SQ":"" }
 				total_parsed += 1
+				print "\r %s documents parsed in total." % total_parsed,
 				# COMMENT FOLLOWING LINE OUT TO PARSE ALL FILES
 				# OR SET NUMBER FOR AMOUNT OF FILES
-				if( total_parsed == 20000 ): break
-				print "\r %s documents parsed in total." % total_parsed,
+				if( total_parsed >= 2000 ): break
 			# If current line is a comment, ignore it
 			if(line.startswith("CC")): continue
 			# If current line is indented, add to Sequence

@@ -7,14 +7,19 @@ class fieldGrabber:
 	
 	def __init__(this, id, fields):
 		this.fields		= fields
+		if( len(fields) == 0 ):
+			this.all_wanted	= True
+		else:
+			this.all_wanted	= False
 		this.id			= id
 		this.config_file	= open("config.yml","r")
 		this.client		= None
 		this.database		= None
 		this.result		= {}
-		this.loadConfig()
-		this.establishConnection()
-		this.getInformation()
+		if( this.id != "" ):
+			this.loadConfig()
+			this.establishConnection()
+			this.getInformation()
 
 
 	def loadConfig( this ):
@@ -40,7 +45,7 @@ class fieldGrabber:
 			return
 		this.collection = this.collection[0]
                 for key in this.collection.keys():
-                        if( key in this.fields ):
+                        if( ( key in this.fields ) or ( this.all_wanted == True ) ) and ( key != "_id" ):
                                 this.result[str(key)] = this.collection[str(key)]
 												
 			
@@ -49,5 +54,8 @@ if( __name__ == '__main__'):
 	if( len(sys.argv) > 2 ):
 		fg = fieldGrabber( sys.argv[1] ,sys.argv[2:])
 		print json.dumps(fg.result)
+	elif(len(sys.argv) == 2 ):
+		fg = fieldGrabber( sys.argv[1], [] )
+		print json.dumps(fg.result)
 	else:
-		print __main__.__file__ + " <ID> <Field1> [Field2] [Field3] ..."
+		print "{}"
