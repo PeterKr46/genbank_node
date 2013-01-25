@@ -77,7 +77,7 @@ function GenBankServer()
 		var GETData	= req.url.split("?")[1];
 		if(GETData == undefined || GETData == "")
 		{
-			res.end(" }\n");
+			res.end("{}\n");
 		}
 		var keys	= GETData.split("&");
 		var fields	= [];
