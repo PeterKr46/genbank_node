@@ -22,28 +22,28 @@ Requirements:
 To set the server up, open the "config.yml".
 It should look like this:
 ```yaml
-port: 8001				# This is the port the Node.js Server will be running on
+port: 8001						# This is the port the Node.js Server will be running on
 mongo_address: localhost		# IP for mongodb server
-mongo_port: 27017			# Port for mongodb server
+mongo_port: 27017				# Port for mongodb server
 mongo_db: mongo_database		# Database containing the information
 mongo_user: mongo_username		# Username to authenticate with
 mongo_pass: mongo_password		# Password to authenticate with
-# This part is optional, leave it commented out to copy all information to the database
+# This part is optional, commented it out to copy all information to the database
 # or set the field names you want to ignore when storing information.
 database_ignore:
     - SQ
     - KW
 ```
-Follow the instructions inside the file to set things up.
+Follow the instructions above to set the configuration file up.
 Once you're done, run this from the command line:
 ```terminal
 ./genbank_to_mongodb.py <Path to a GenBank Format file>
 ```
-The file is limited to 20k files by default. You can remove the limit by commenting a marked line in the file out:
+The parser is limited to 2k files by default. You can remove the limit by commenting a marked line in the file out:
 ```python
 				# COMMENT FOLLOWING LINE OUT TO PARSE ALL FILES
 				# OR SET NUMBER FOR AMOUNT OF FILES
-				if( total_parsed == 20000 ): break
+				if( total_parsed == 2000 ): break
 ```
 Once the script has finished, run this command to start the server up:
 ```terminal
